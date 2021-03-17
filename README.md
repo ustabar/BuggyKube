@@ -26,11 +26,11 @@ You can check the result using:
 ```bash
 kubectl get pods,deployment,servcice -n default
 
-NAME                                    READY   STATUS    RESTARTS   AGE
-pod/buggy-6b465d7854-n82lb              1/1     Running   1          100m
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/buggy-6b465d7854-n82lb      1/1     Running   1          100m
 
-NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/buggy              1/1     1            1           100m
+NAME                            READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/buggy           1/1     1            1           100m
 
 NAME                            TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
 service/buggyservice            ClusterIP      10.98.10.73      <none>        80/TCP           100m
