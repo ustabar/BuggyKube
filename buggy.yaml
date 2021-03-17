@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: buggybits
-spec:
-  containers:
-  - image: sample
-    name: buggybits
-    imagePullPolicy: IfNotPresent
