@@ -20,4 +20,4 @@ Open a browser and enter `http://localhost:88`.
 
 ## References
 
-(Create a yaml file for a simple aspnetcore application)[https://docs.docker.com/engine/examples/dotnetcore/]
+[Create a yaml file for a simple aspnetcore application](https://docs.docker.com/engine/examples/dotnetcore/)
