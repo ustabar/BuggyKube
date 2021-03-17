@@ -1,2 +1,2 @@
 # BuggyKube
-BuggyBits on Kubernetes
+BuggyBits application works on Kubernetes
