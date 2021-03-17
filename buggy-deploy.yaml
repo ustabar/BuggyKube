@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: buggy
+  labels:
+    app: buggycore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: buggyservice
+  template:
+    metadata:
+      labels:
+        app: buggycore
+        service: buggyservice
+    spec:
+      containers:
+        - name: buggy
+          image: sample
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: buggyservice
+  labels:
+    app: buggy
+    service: webapi
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    service: buggyservice
