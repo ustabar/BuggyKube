@@ -50,7 +50,11 @@ kubectl port-forward service/buggyservice 70:80
 ## References
 
 [Create a yaml file for a simple aspnetcore application](https://docs.docker.com/engine/examples/dotnetcore/)
+
 [Running ASP.NET Applications (Core) in Kubernetes — A Detailed Step By Step Approach](https://bterkaly.medium.com/running-asp-net-applications-in-kubernetes-a-detailed-step-by-step-approach-96c98f273d1a)
+
 [Deploy ASP.NET Core apps to Azure Kubernetes Service with Azure DevOps Starter](https://docs.microsoft.com/en-us/azure/devops-project/azure-devops-project-aks)
+
 [Build ASP.NET Core applications deployed as Linux containers into an AKS/Kubernetes orchestrator](https://docs.microsoft.com/en-us/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/build-aspnet-core-applications-linux-containers-aks-kubernetes)
+
 [Generate tables in markdown](https://www.tablesgenerator.com/markdown_tables)
