@@ -47,6 +47,22 @@ service/buggyservice            ClusterIP      10.98.10.73      <none>        80
 ```bash
 kubectl port-forward service/buggyservice 70:80
 ```
+
+## Generate automatic dump file on a Azure File location
+```bash
+# Deploy Persistant Volume
+kubectl apply -f buggy-azurefile-pv.yaml
+
+# Deploy Persistant Volume Claim
+kubectl apply -f buggy-azurefile-pvc.yaml
+
+# Deploy sample application with requested configuration
+kubectl apply -f buggy-deploy-for-dump.yaml
+
+# Check if the deployment is successful
+kubectl get pods
+```
+
 ## References
 
 - [Create a yaml file for a simple aspnetcore application](https://docs.docker.com/engine/examples/dotnetcore/)
