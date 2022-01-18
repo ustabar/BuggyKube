@@ -58,3 +58,5 @@ kubectl port-forward service/buggyservice 70:80
 - [Build ASP.NET Core applications deployed as Linux containers into an AKS/Kubernetes orchestrator](https://docs.microsoft.com/en-us/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/build-aspnet-core-applications-linux-containers-aks-kubernetes)
 
 - [Generate tables in markdown](https://www.tablesgenerator.com/markdown_tables)
+
+- [Manually create and use a volume with Azure Files share in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/azure-files-volume)
