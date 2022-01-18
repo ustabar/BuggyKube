@@ -48,7 +48,7 @@ service/buggyservice            ClusterIP      10.98.10.73      <none>        80
 kubectl port-forward service/buggyservice 70:80
 ```
 
-## Generate automatic dump file on a Azure File location
+## Generate automatic dump file on an Azure File location
 ```bash
 # Deploy Persistant Volume
 kubectl apply -f buggy-azurefile-pv.yaml
