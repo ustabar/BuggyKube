@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "demoaks-e3dc"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "demoaks-e3dc"
+  template:
+    metadata:
+      labels:
+        app: "demoaks-e3dc"
+    spec:
+      containers:
+        - name: "demoaks-e3dc"
+          image: "tatacr.azurecr.io/demoaks"
+          ports:
+          - containerPort: 80
