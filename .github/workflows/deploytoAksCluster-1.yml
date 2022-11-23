@@ -1,0 +1,50 @@
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    
+    - uses: azure/docker-login@v1
+      with:
+        login-server: barutacr.azurecr.io
+        username: ${{ secrets.acr_barutacr_username }}
+        password: ${{ secrets.acr_barutacr_password }}
+    
+    - name: Build and push image to ACR
+      id: build-image
+      run: |
+        docker build "$GITHUB_WORKSPACE/" -f  "dockerfile" -t barutacr.azurecr.io/demoakscluster:${{ github.sha }} --label dockerfile-path=dockerfile
+        docker push barutacr.azurecr.io/demoakscluster:${{ github.sha }}
+    
+    - uses: azure/k8s-set-context@v1
+      with:
+         kubeconfig: ${{ secrets.aks_demoakscluster_kubeConfig }}
+      id: login
+    
+    - name: Create namespace
+      run: |
+        namespacePresent=`kubectl get namespace | grep demoaksclusterac8b | wc -l`
+        if [ $namespacePresent -eq 0 ]
+        then
+            echo `kubectl create namespace demoaksclusterac8b`
+        fi
+
+    - uses: azure/k8s-create-secret@v1
+      with:
+        namespace: demoaksclusterac8b
+        container-registry-url: barutacr.azurecr.io
+        container-registry-username: ${{ secrets.acr_barutacr_username }}
+        container-registry-password: ${{ secrets.acr_barutacr_password }}
+        secret-name: demoaksclustdockerauth
+       
+    - uses: azure/k8s-deploy@v1.2
+      with:
+        namespace: demoaksclusterac8b
+        manifests: |
+          manifests/deployment-1.yml
+          manifests/service-1.yml
+        images: |
+          barutacr.azurecr.io/demoakscluster:${{ github.sha }}
+        imagepullsecrets: |
+          demoaksclustdockerauth
