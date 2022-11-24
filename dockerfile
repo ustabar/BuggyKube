@@ -10,7 +10,7 @@ RUN dotnet tool install --tool-path /tools dotnet-counters
 RUN dotnet tool install --tool-path /tools dotnet-dump
 RUN dotnet tool install --tool-path /tools dotnet-gcdump
 RUN dotnet tool install --tool-path /tools dotnet-trace
-RUN dotnet tool install --tool-path /tools dotnet-stack
+# RUN dotnet tool install --tool-path /tools dotnet-stack
 RUN dotnet tool install --tool-path /tools dotnet-symbol
 RUN dotnet tool install --tool-path /tools dotnet-sos
 
